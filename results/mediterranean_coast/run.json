@@ -1,0 +1,563 @@
+{
+ "plan": {
+  "location_key": "mediterranean_coast",
+  "location_label": "Mediterranean coastal town",
+  "concept": "A low front-side launch portrait places the car on a coastal sweep, with pastel hillside buildings and a glimpse of blue sea establishing the town.",
+  "set": {
+   "road": [
+    {
+     "straight_m": 45.0,
+     "turn_deg": null,
+     "radius_m": null
+    },
+    {
+     "straight_m": null,
+     "turn_deg": 50.0,
+     "radius_m": 65.0
+    },
+    {
+     "straight_m": 80.0,
+     "turn_deg": null,
+     "radius_m": null
+    }
+   ],
+   "road_width_m": 7.0,
+   "elements": [
+    {
+     "kind": "hillside",
+     "side": "far",
+     "count": null,
+     "distance_m": null,
+     "height_m": null,
+     "height_deg": [
+      3.0,
+      9.0
+     ],
+     "size_m": null,
+     "width_deg": null,
+     "grade": 0.18,
+     "jagged": null,
+     "flat_top": null,
+     "steepness": null
+    },
+    {
+     "kind": "buildings",
+     "side": "far",
+     "count": 9,
+     "distance_m": [
+      14.0,
+      55.0
+     ],
+     "height_m": [
+      5.0,
+      12.0
+     ],
+     "height_deg": [
+      3.0,
+      12.0
+     ],
+     "size_m": [
+      7.0,
+      16.0
+     ],
+     "width_deg": null,
+     "grade": null,
+     "jagged": null,
+     "flat_top": null,
+     "steepness": null
+    },
+    {
+     "kind": "trees",
+     "side": "far",
+     "count": 8,
+     "distance_m": [
+      18.0,
+      60.0
+     ],
+     "height_m": [
+      4.0,
+      8.0
+     ],
+     "height_deg": [
+      2.0,
+      7.0
+     ],
+     "size_m": null,
+     "width_deg": null,
+     "grade": null,
+     "jagged": null,
+     "flat_top": null,
+     "steepness": null
+    },
+    {
+     "kind": "sea",
+     "side": "near",
+     "count": null,
+     "distance_m": [
+      8.0
+     ],
+     "height_m": null,
+     "height_deg": null,
+     "size_m": null,
+     "width_deg": null,
+     "grade": null,
+     "jagged": null,
+     "flat_top": null,
+     "steepness": null
+    }
+   ],
+   "seed": 37
+  },
+  "placement": {
+   "distance_m": 73.4,
+   "lane": "near",
+   "heading_offset_deg": 0.0
+  },
+  "camera": {
+   "azimuth_deg": 65.0,
+   "elevation_deg": 5.0,
+   "focal_mm": 85.0,
+   "car_width_frac": 0.62,
+   "frame_x": 0.55,
+   "frame_y": 0.64,
+   "roll_deg": 0.0,
+   "target_height_m": 0.65,
+   "aim_x": 0.0,
+   "aim_y": 0.0,
+   "aim_z": 0.0,
+   "subject_width_m": 0.0,
+   "fstop": 8.0
+  },
+  "motion": {
+   "speed_kmh": 0.0,
+   "shutter_s": 0.004,
+   "tracking": 0.0,
+   "blur": false
+  },
+  "light": {
+   "time_of_day": "late morning, bright daylight, clear blue sky",
+   "hdri_query": "Mediterranean coastal town seaside road pastel buildings sparse pines late morning clear blue sky",
+   "sun_rel_deg": null,
+   "lamps_on": false
+  },
+  "livery": null,
+  "grade": null,
+  "scene_prompt": "An empty, deserted road curves along a Mediterranean coastal town in bright late-morning sunlight. Sun-warmed grey asphalt has restrained white edge markings and a weathered surface. Across the road, cream and pastel stucco buildings with terracotta roofs climb a low hillside among scattered umbrella pines and olive trees. On the camera side, a narrow pale-stone verge gives way to the deep blue sea. Clear blue sky, crisp shadows and natural coastal colours; an open, unobstructed foreground.",
+  "reference_keys": []
+ },
+ "report": [
+  {
+   "name": "plate_not_blank",
+   "passed": true,
+   "score": 1.0,
+   "detail": "p99.5=249.0 std=49.92"
+  },
+  {
+   "name": "layout_match",
+   "passed": true,
+   "score": 0.477,
+   "detail": "edge F1=0.477 (precision 0.321, recall 0.930; pass >= 0.25, uncalibrated)"
+  },
+  {
+   "name": "car_pixels_untouched",
+   "passed": true,
+   "score": 1.0,
+   "detail": "100.00 % of 146988 opaque car pixels within \u00b12 levels (need 99.5 %)",
+   "blocking": true,
+   "code": null
+  }
+ ],
+ "history": [
+  {
+   "attempt": 1,
+   "stage": "SETUP",
+   "wanted": "SETUP",
+   "reason": ""
+  },
+  {
+   "attempt": 1,
+   "event": "human",
+   "decision": "approve",
+   "note": ""
+  }
+ ],
+ "scene_ops": [
+  {
+   "tool": "load_car",
+   "args": {
+    "car_key": "cars/mclaren_p1_gtr.glb",
+    "length_m": 4.588
+   }
+  },
+  {
+   "tool": "set_materials",
+   "args": {
+    "assignments": {
+     ".009": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".017": {
+      "preset": "keep",
+      "metallic": 0.0,
+      "roughness": 0.35,
+      "specular": 0.2,
+      "coat": 1.0,
+      "coat_roughness": 0.02
+     },
+     ".037": {
+      "preset": "keep",
+      "metallic": 0.0,
+      "roughness": 0.35,
+      "specular": 0.2,
+      "coat": 1.0,
+      "coat_roughness": 0.02
+     },
+     ".023": {
+      "preset": "carbon_fibre"
+     },
+     "Material.005": {
+      "preset": "keep",
+      "metallic": 0.0,
+      "roughness": 0.35,
+      "specular": 0.2,
+      "coat": 1.0,
+      "coat_roughness": 0.02
+     },
+     ".036": {
+      "preset": "keep",
+      "metallic": 0.0,
+      "roughness": 0.35,
+      "specular": 0.2,
+      "coat": 1.0,
+      "coat_roughness": 0.02
+     },
+     ".015": {
+      "preset": "wheel_rim"
+     },
+     "Material.006": {
+      "preset": "keep",
+      "roughness": 0.7
+     },
+     "Material.007": {
+      "preset": "rubber_tyre"
+     },
+     ".019": {
+      "preset": "wheel_rim",
+      "base": "#0A0A0A"
+     },
+     ".021": {
+      "preset": "brake_disc"
+     },
+     ".006": {
+      "preset": "satin_trim"
+     },
+     ".022": {
+      "preset": "satin_trim"
+     },
+     ".007": {
+      "preset": "satin_trim"
+     },
+     ".029": {
+      "preset": "satin_trim"
+     },
+     ".027": {
+      "preset": "satin_trim"
+     },
+     ".032": {
+      "preset": "satin_trim"
+     },
+     ".010": {
+      "preset": "satin_trim"
+     },
+     ".035": {
+      "preset": "satin_trim"
+     },
+     ".026": {
+      "preset": "keep",
+      "roughness": 0.55
+     },
+     ".011": {
+      "preset": "glass_car"
+     },
+     ".018": {
+      "preset": "glass_car"
+     },
+     ".004": {
+      "preset": "lamp_lens"
+     },
+     ".031": {
+      "preset": "lamp_led",
+      "emission_strength": 0.0
+     },
+     ".033": {
+      "preset": "lamp_led",
+      "emission_strength": 0.0
+     },
+     ".030": {
+      "preset": "lamp_emissive",
+      "base": "#3A0505",
+      "emission": "#FF1A0A",
+      "emission_strength": 0.0
+     },
+     ".028": {
+      "preset": "metal_brushed"
+     },
+     ".034": {
+      "preset": "metal_brushed",
+      "base": "#3A3A3C"
+     },
+     ".002": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".003": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     "material_16": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".012": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".013": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".001": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".020": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".008": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".014": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".005": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".016": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".038": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".024": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".040": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     "Material.012": {
+      "preset": "car_paint",
+      "base": "#0A0A0A",
+      "roughness": 0.25
+     },
+     "Material.014": {
+      "preset": "car_paint",
+      "base": "#0A0A0A",
+      "roughness": 0.25
+     }
+    }
+   }
+  },
+  {
+   "tool": "reset_scene",
+   "args": {
+    "keep_car": true
+   }
+  },
+  {
+   "tool": "build_set",
+   "args": {
+    "road": [
+     {
+      "straight_m": 45.0
+     },
+     {
+      "turn_deg": 50.0,
+      "radius_m": 65.0
+     },
+     {
+      "straight_m": 80.0
+     }
+    ],
+    "elements": [
+     {
+      "kind": "hillside",
+      "side": "far",
+      "height_deg": [
+       3.0,
+       9.0
+      ],
+      "grade": 0.18
+     },
+     {
+      "kind": "buildings",
+      "side": "far",
+      "count": 9,
+      "distance_m": [
+       14.0,
+       55.0
+      ],
+      "height_m": [
+       5.0,
+       12.0
+      ],
+      "height_deg": [
+       3.0,
+       12.0
+      ],
+      "size_m": [
+       7.0,
+       16.0
+      ]
+     },
+     {
+      "kind": "trees",
+      "side": "far",
+      "count": 8,
+      "distance_m": [
+       18.0,
+       60.0
+      ],
+      "height_m": [
+       4.0,
+       8.0
+      ],
+      "height_deg": [
+       2.0,
+       7.0
+      ]
+     },
+     {
+      "kind": "sea",
+      "side": "near",
+      "distance_m": 8.0
+     }
+    ],
+    "camera_side": "left",
+    "road_width_m": 7.0,
+    "seed": 37
+   }
+  },
+  {
+   "tool": "place_car_on_road",
+   "args": {
+    "distance_m": 73.4,
+    "lane": "left",
+    "heading_offset_deg": 0.0
+   }
+  },
+  {
+   "tool": "frame_shot",
+   "args": {
+    "azimuth_deg": 65.0,
+    "elevation_deg": 5.0,
+    "focal_mm": 85.0,
+    "car_width_frac": 0.62,
+    "frame_x": 0.55,
+    "frame_y": 0.64,
+    "roll_deg": 0.0,
+    "target_height_m": 0.65,
+    "aim_x": 0.0,
+    "aim_y": 0.0,
+    "aim_z": 0.0,
+    "subject_width_m": 0.0
+   }
+  }
+ ],
+ "scene": {
+  "place": {
+   "location": [
+    -7.694,
+    71.768,
+    0.01
+   ],
+   "heading_deg": 335.07
+  },
+  "camera": {
+   "location": [
+    -26.704,
+    71.792,
+    2.323
+   ],
+   "rotation_deg": [
+    85.0,
+    -0.0,
+    -90.073
+   ],
+   "lens_mm": 85.0,
+   "sensor_width_mm": 36.0,
+   "shift_x": -0.06084,
+   "shift_y": 0.07431,
+   "distance_m": 19.083
+  },
+  "light": {
+   "sky": "hdri",
+   "polyhaven_id": "simons_town_road",
+   "resolution": "4k",
+   "align_sun_azimuth_deg": 225.07233550645606,
+   "sun_strength": 0.0,
+   "hdri_query": "Mediterranean coastal town seaside road pastel buildings sparse pines late morning clear blue sky",
+   "hdri_why": "Grey road, dry coastal hillside and scrub under a clear blue sky and bright, hard sunlight best match the setting.",
+   "hdri_sun": {
+    "azimuth_deg": 126.2,
+    "elevation_deg": 37.6,
+    "contrast": 287309.4
+   },
+   "hdri_rotation_deg": 98.87,
+   "sun_words": "The sun is at mid height, behind the camera and to the right; shadows fall away from the camera and to the left."
+  },
+  "blend_key": "jobs/mediterranean-coast-c59465/a1/scene.blend"
+ },
+ "budget": {
+  "images_used": 2,
+  "images_cap": 8,
+  "loops": 1,
+  "loops_cap": 6
+ }
+}

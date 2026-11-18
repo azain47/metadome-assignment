@@ -1,0 +1,114 @@
+name: trueshot
+
+# One command: `docker compose up`. Blender runs on the host (see README "Host setup").
+# Ports are published on 127.0.0.1 only. Postgres is not published.
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-trueshot}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-trueshot}
+      TZ: UTC
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 3s
+      retries: 30
+    restart: unless-stopped
+
+  s3:
+    image: chrislusf/seaweedfs:4.54
+    # `weed mini`: master + volume + filer + S3 in one process. The env credentials create
+    # an admin identity and the bucket at startup; anonymous access is refused once keys exist.
+    command: ["mini", "-dir=/data", "-s3.externalUrl=${S3_PUBLIC_ENDPOINT:-http://127.0.0.1:8333}"]
+    environment:
+      AWS_ACCESS_KEY_ID: ${S3_ACCESS_KEY:?set S3_ACCESS_KEY in .env}
+      AWS_SECRET_ACCESS_KEY: ${S3_SECRET_KEY:?set S3_SECRET_KEY in .env}
+      S3_BUCKET: ${S3_BUCKET:-trueshot}
+    ports:
+      - "127.0.0.1:8333:8333"   # Blender on the host and the browser load/store images here
+    volumes:
+      - s3data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8333/healthz"]
+      interval: 3s
+      retries: 40
+    restart: unless-stopped
+
+  hostip:
+    # WSL2 + Docker Engine: the Windows host (where Blender runs) is the WSL default gateway,
+    # which changes when WSL restarts. Docker restarts the stack after a WSL restart without
+    # re-running one-shot containers, so this keeps running and rewrites the file every 10 s.
+    # No-op (empty file) outside WSL.
+    image: alpine:3
+    network_mode: host
+    command: ["sh", "-c", "mkdir -p /run/hostip; while :; do if grep -qi microsoft /proc/version; then ip route show default | awk '{print $$3; exit}' > /run/hostip/gw.tmp; else : > /run/hostip/gw.tmp; fi; mv /run/hostip/gw.tmp /run/hostip/gw; sleep 10; done"]
+    volumes:
+      - hostip:/run/hostip
+    restart: unless-stopped
+
+  mcp-blender:
+    image: ${IMAGE_REGISTRY:-trueshot}/mcp-blender:${TAG:-dev}
+    build: ./mcp
+    environment:
+      BLENDER_HOST: ${BLENDER_HOST:-}
+      BLENDER_PORT: ${BLENDER_PORT:-9876}
+      BLENDER_HOST_CANDIDATES: file:/run/hostip/gw,host.docker.internal,localhost
+      TS_STEP_PAUSE_S: ${TS_STEP_PAUSE_S:-1.0}
+      S3_ENDPOINT: http://s3:8333
+      S3_PUBLIC_ENDPOINT: ${S3_PUBLIC_ENDPOINT:-http://127.0.0.1:8333}
+      S3_ACCESS_KEY: ${S3_ACCESS_KEY}
+      S3_SECRET_KEY: ${S3_SECRET_KEY}
+      S3_BUCKET: ${S3_BUCKET:-trueshot}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - hostip:/run/hostip:ro
+    depends_on:
+      hostip:
+        condition: service_started
+      s3:
+        condition: service_healthy
+    # Not published: this server runs arbitrary Python in Blender. Only the agent talks to it.
+    restart: unless-stopped
+
+  agent:
+    image: ${IMAGE_REGISTRY:-trueshot}/agent:${TAG:-dev}
+    build:
+      context: .
+      dockerfile: agent/Dockerfile
+    env_file:
+      - path: .env
+        required: true
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-trueshot}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-trueshot}
+      S3_ENDPOINT: http://s3:8333
+      BLENDER_MCP_URL: http://mcp-blender:8000/
+      ASSETS_DIR: /assets
+      OUTPUTS_DIR: /outputs
+      TZ: UTC
+    volumes:
+      - ./assets:/assets:ro
+      - ./outputs:/outputs
+    ports:
+      - "127.0.0.1:${AGENT_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 5s
+      retries: 30
+    depends_on:
+      postgres:
+        condition: service_healthy
+      s3:
+        condition: service_healthy
+      mcp-blender:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  pgdata: {}
+  s3data: {}
+  hostip: {}

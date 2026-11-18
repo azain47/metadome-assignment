@@ -1,0 +1,118 @@
+{
+ "car_key": "cars/mclaren_p1_gtr.glb",
+ "name": "McLaren P1 GTR (2015)",
+ "model_credit": "\"McLaren P1 GTR 2015\" (https://sketchfab.com/3d-models/mclaren-p1-gtr-2015-187bdc110d16417e8a02e71af4ebd8d8) by LC Design, CC-BY-4.0",
+ "length_m": 4.588,
+ "wheel_spoke_count": 10,
+ "reference_images": ["https://media.sketchfab.com/models/187bdc110d16417e8a02e71af4ebd8d8/thumbnails/bea22f80025d4889a77c2fd83ce70edb/d7a635a368c14d10a80b4cebb867eda0.jpeg"],
+ "material_groups": {
+  "body": [".002", ".003", "material_16", ".012", ".013", ".001", ".020"],
+  "accents": [".008", ".014", ".005", ".016", ".038", ".024", ".040"],
+  "calipers": ["Material.012", "Material.014"]
+ },
+ "livery_default": "mclaren_orange",
+ "liveries": {
+  "mclaren_orange": {
+   "description": "McLaren Orange metallic body, gloss black accents, exposed black carbon splitter, side skirts, diffuser and wing, gloss black 10-spoke centre-lock wheels on Pirelli slicks, black calipers (the only caliper option on the real GTR), swoosh LED headlamps, full-width rear LED bar.",
+   "groups": {
+    "body": {"preset": "metallic_paint", "base": "#FF6A13", "metallic": 0.35, "roughness": 0.32, "coat_roughness": 0.02, "flake_strength": 0.08},
+    "accents": {"preset": "car_paint", "base": "#0B0C0E"},
+    "calipers": {"preset": "car_paint", "base": "#0A0A0A", "roughness": 0.25}
+   }
+  },
+  "satin_grey": {
+   "description": "Satin metallic gunmetal-grey body over the whole car including the bonnet (no stripes), exposed black carbon lower parts and wing, gloss black 10-spoke wheels, red brake calipers (from the user's reference photo).",
+   "groups": {
+    "body": {"preset": "metallic_paint", "base": "#6B6E72", "metallic": 0.7, "roughness": 0.38, "coat_roughness": 0.18},
+    "accents": {"preset": "metallic_paint", "base": "#6B6E72", "metallic": 0.7, "roughness": 0.38, "coat_roughness": 0.18},
+    "calipers": {"preset": "car_paint", "base": "#B5121B", "roughness": 0.3}
+   }
+  },
+  "burton_blue": {
+   "description": "Burton Blue (solid) body with a white stripe, black calipers. Real car: chassis 023. Source: https://backoffice.rmsothebys.com/auctions/mi25/lots/r0031-2015-mclaren-p1-gtr/",
+   "source_url": "https://backoffice.rmsothebys.com/auctions/mi25/lots/r0031-2015-mclaren-p1-gtr/",
+   "evidence": "RM Sotheby's identifies chassis 023 as Burton Blue with a white stripe; finish and hex are visual estimates, caliper colour undocumented.",
+   "groups": {
+    "body": {"preset": "car_paint", "roughness": 0.4, "base": "#1762A3"},
+    "accents": {"preset": "car_paint", "base": "#F2F2F2"},
+    "calipers": {"preset": "car_paint", "base": "#0A0A0A", "roughness": 0.3}
+   }
+  },
+  "iridium_blue": {
+   "description": "Iridium Blue (pearl) body, satin-black accents, black calipers. Real car: chassis 014 (later wrapped in a similar metallic blue). Source: https://backoffice.rmsothebys.com/auctions/lf25/lots/r0053-2015-mclaren-p1-gtr/",
+   "source_url": "https://backoffice.rmsothebys.com/auctions/lf25/lots/r0053-2015-mclaren-p1-gtr/",
+   "evidence": "Chassis 014 was specified in Iridium Blue; the listing shows a later metallic-blue wrap, so the hex approximates the wrap; caliper colour undocumented.",
+   "groups": {
+    "body": {"preset": "pearl_paint", "base": "#235183"},
+    "accents": {"preset": "car_paint", "base": "#17191C"},
+    "calipers": {"preset": "car_paint", "base": "#0A0A0A", "roughness": 0.3}
+   }
+  },
+  "geneva_launch_yellow_green": {
+   "description": "Geneva 2015 launch livery: yellow body with green accents (tribute to the 1995 F1 GTR 06R), black calipers. Source: https://www.completecar.ie/car-news/article/4449/McLaren-P1-GTR-sports-new-livery",
+   "source_url": "https://www.completecar.ie/car-news/article/4449/McLaren-P1-GTR-sports-new-livery",
+   "evidence": "The 2015 Geneva car wore a yellow-and-green livery inspired by F1 GTR chassis 06R; paint names, finish and hex are visual estimates.",
+   "groups": {
+    "body": {"preset": "car_paint", "roughness": 0.4, "base": "#F3D928"},
+    "accents": {"preset": "car_paint", "base": "#17623C"},
+    "calipers": {"preset": "car_paint", "base": "#0A0A0A", "roughness": 0.3}
+   }
+  },
+  "james_hunt_tribute": {
+   "description": "James Hunt 40th anniversary tribute: black body with red accents (the real car also has yellow and blue stripes), black calipers. Source: https://drivemag.com/news/mclaren-paints-p1-gtr-in-james-hunt-s-race-colors/",
+   "source_url": "https://drivemag.com/news/mclaren-paints-p1-gtr-in-james-hunt-s-race-colors/",
+   "evidence": "McLaren's Hunt tribute uses a black base with red, yellow and blue stripes; only red is modelled as the accent colour.",
+   "groups": {
+    "body": {"preset": "car_paint", "roughness": 0.4, "base": "#151619"},
+    "accents": {"preset": "car_paint", "base": "#E02D27"},
+    "calipers": {"preset": "car_paint", "base": "#0A0A0A", "roughness": 0.3}
+   }
+  },
+  "senna_tribute_white": {
+   "description": "MSO Ayrton Senna tribute: Anniversary White body with Rocket Red accents, black calipers. Source: https://www.sx-z.com/mso-creates-unique-mclaren-p1-gtr-to-celebrate-to-ayrton-senna/",
+   "source_url": "https://www.sx-z.com/mso-creates-unique-mclaren-p1-gtr-to-celebrate-to-ayrton-senna/",
+   "evidence": "The MSO 'Beco' tribute combines Anniversary White with McLaren Rocket Red; finish and hex are visual estimates.",
+   "groups": {
+    "body": {"preset": "car_paint", "roughness": 0.4, "base": "#F1F0EA"},
+    "accents": {"preset": "car_paint", "base": "#F02F25"},
+    "calipers": {"preset": "car_paint", "base": "#0A0A0A", "roughness": 0.3}
+   }
+  }
+ },
+ "materials": {
+  ".009": {"preset": "car_paint", "base": "#0B0C0E"},
+  ".017": {"preset": "keep", "metallic": 0.0, "roughness": 0.35, "specular": 0.2, "coat": 1.0, "coat_roughness": 0.02},
+  ".037": {"preset": "keep", "metallic": 0.0, "roughness": 0.35, "specular": 0.2, "coat": 1.0, "coat_roughness": 0.02},
+  ".023": {"preset": "carbon_fibre"},
+  "Material.005": {"preset": "keep", "metallic": 0.0, "roughness": 0.35, "specular": 0.2, "coat": 1.0, "coat_roughness": 0.02},
+  ".036": {"preset": "keep", "metallic": 0.0, "roughness": 0.35, "specular": 0.2, "coat": 1.0, "coat_roughness": 0.02},
+  ".015": {"preset": "wheel_rim"},
+  "Material.006": {"preset": "keep", "roughness": 0.7},
+  "Material.007": {"preset": "rubber_tyre"},
+  ".019": {"preset": "wheel_rim", "base": "#0A0A0A"},
+  ".021": {"preset": "brake_disc"},
+  ".006": {"preset": "satin_trim"},
+  ".022": {"preset": "satin_trim"},
+  ".007": {"preset": "satin_trim"},
+  ".029": {"preset": "satin_trim"},
+  ".027": {"preset": "satin_trim"},
+  ".032": {"preset": "satin_trim"},
+  ".010": {"preset": "satin_trim"},
+  ".035": {"preset": "satin_trim"},
+  ".026": {"preset": "keep", "roughness": 0.55},
+  ".011": {"preset": "glass_car"},
+  ".018": {"preset": "glass_car"},
+  ".004": {"preset": "lamp_lens"},
+  ".031": {"preset": "lamp_led", "emission_strength": 2.0},
+  ".033": {"preset": "lamp_led", "emission_strength": 2.0},
+  ".030": {"preset": "lamp_emissive", "base": "#3A0505", "emission": "#FF1A0A", "emission_strength": 2.0},
+  ".028": {"preset": "metal_brushed"},
+  ".034": {"preset": "metal_brushed", "base": "#3A3A3C"}
+ },
+ "sources": [
+  "https://www.motorsport.com/automotive/news/full-technical-details-of-new-mclaren-p1-gtr/462637/",
+  "https://www.tomhartleyjnr.com/car/previously-sold/2016/mclaren/p1-gtr/mclaren-p1-gtr",
+  "https://sportscardigest.com/collecting-cars-offers-rare-track-exclusive-2015-mclaren-p1-gtr",
+  "https://www.akebono-brake.com/static/news/english/2013/03/05/ne20130305_01.html"
+ ]
+}

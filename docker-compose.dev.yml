@@ -1,0 +1,9 @@
+# Development only: `docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d`
+# Publishes Postgres and the MCP server on loopback so code running in WSL can reach them.
+services:
+  postgres:
+    ports:
+      - "127.0.0.1:5433:5432"
+  mcp-blender:
+    ports:
+      - "127.0.0.1:8765:8000"

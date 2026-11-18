@@ -1,0 +1,11 @@
+**/.venv
+**/node_modules
+**/__pycache__
+ui/dist
+assets
+outputs
+research
+spike
+docs
+*.pdf
+.env

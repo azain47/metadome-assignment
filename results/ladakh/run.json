@@ -1,0 +1,544 @@
+{
+ "plan": {
+  "location_key": "ladakh",
+  "location_label": "Ladakh high-altitude road",
+  "concept": "An elevated rear three-quarter portrait on a sweeping mountain road places the whole car against Ladakh\u2019s vast, barren ranges.",
+  "set": {
+   "road": [
+    {
+     "straight_m": 60.0,
+     "turn_deg": null,
+     "radius_m": null
+    },
+    {
+     "straight_m": null,
+     "turn_deg": 75.0,
+     "radius_m": 80.0
+    },
+    {
+     "straight_m": 90.0,
+     "turn_deg": null,
+     "radius_m": null
+    }
+   ],
+   "road_width_m": 6.5,
+   "elements": [
+    {
+     "kind": "hillside",
+     "side": "both",
+     "count": null,
+     "distance_m": null,
+     "height_m": null,
+     "height_deg": [
+      2.0,
+      6.0
+     ],
+     "size_m": null,
+     "width_deg": null,
+     "grade": 0.12,
+     "jagged": null,
+     "flat_top": null,
+     "steepness": null
+    },
+    {
+     "kind": "mountains",
+     "side": "far",
+     "count": 6,
+     "distance_m": [
+      1800.0,
+      6500.0
+     ],
+     "height_m": null,
+     "height_deg": [
+      6.0,
+      15.0
+     ],
+     "size_m": null,
+     "width_deg": [
+      18.0,
+      38.0
+     ],
+     "grade": null,
+     "jagged": 0.65,
+     "flat_top": 0.1,
+     "steepness": 2.5
+    },
+    {
+     "kind": "mountains",
+     "side": "near",
+     "count": 3,
+     "distance_m": [
+      3500.0,
+      7500.0
+     ],
+     "height_m": null,
+     "height_deg": [
+      3.0,
+      8.0
+     ],
+     "size_m": null,
+     "width_deg": [
+      20.0,
+      35.0
+     ],
+     "grade": null,
+     "jagged": 0.5,
+     "flat_top": 0.1,
+     "steepness": 3.0
+    }
+   ],
+   "seed": 29
+  },
+  "placement": {
+   "distance_m": 112.4,
+   "lane": "near",
+   "heading_offset_deg": 0.0
+  },
+  "camera": {
+   "azimuth_deg": 145.0,
+   "elevation_deg": 20.0,
+   "focal_mm": 85.0,
+   "car_width_frac": 0.48,
+   "frame_x": 0.48,
+   "frame_y": 0.63,
+   "roll_deg": 0.0,
+   "target_height_m": 0.65,
+   "aim_x": 0.0,
+   "aim_y": 0.0,
+   "aim_z": 0.0,
+   "subject_width_m": 0.0,
+   "fstop": 8.0
+  },
+  "motion": {
+   "speed_kmh": 0.0,
+   "shutter_s": 0.004,
+   "tracking": 0.0,
+   "blur": false
+  },
+  "light": {
+   "time_of_day": "late morning, bright daylight, clear blue sky",
+   "hdri_query": "Ladakh high altitude desert highway barren mountains late morning clear sky",
+   "sun_rel_deg": null,
+   "lamps_on": false
+  },
+  "livery": null,
+  "grade": null,
+  "scene_prompt": "An empty, deserted road sweeps across a high-altitude Ladakh desert landscape, its weathered dark asphalt edged by pale gravel shoulders. Barren ochre and slate-brown slopes rise from the roadside, while immense layered, rugged mountain ranges recede into the clear distance. Crisp late-morning sunlight under a clear blue sky reveals dry rock, scree and subtle bands of sediment; no buildings or vegetation interrupt the open terrain.",
+  "reference_keys": [
+   "refs/ladakh/ref_0.jpg",
+   "refs/ladakh/ref_1.jpg"
+  ]
+ },
+ "report": [
+  {
+   "name": "plate_not_blank",
+   "passed": true,
+   "score": 1.0,
+   "detail": "p99.5=242.0 std=46.42"
+  },
+  {
+   "name": "layout_match",
+   "passed": true,
+   "score": 0.751,
+   "detail": "edge F1=0.751 (precision 0.651, recall 0.889; pass >= 0.25, uncalibrated)"
+  },
+  {
+   "name": "car_pixels_untouched",
+   "passed": true,
+   "score": 1.0,
+   "detail": "100.00 % of 132122 opaque car pixels within \u00b12 levels (need 99.5 %)",
+   "blocking": true,
+   "code": null
+  }
+ ],
+ "history": [
+  {
+   "attempt": 1,
+   "stage": "SETUP",
+   "wanted": "SETUP",
+   "reason": ""
+  },
+  {
+   "attempt": 1,
+   "event": "human",
+   "decision": "approve",
+   "note": ""
+  }
+ ],
+ "scene_ops": [
+  {
+   "tool": "load_car",
+   "args": {
+    "car_key": "cars/mclaren_p1_gtr.glb",
+    "length_m": 4.588
+   }
+  },
+  {
+   "tool": "set_materials",
+   "args": {
+    "assignments": {
+     ".009": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".017": {
+      "preset": "keep",
+      "metallic": 0.0,
+      "roughness": 0.35,
+      "specular": 0.2,
+      "coat": 1.0,
+      "coat_roughness": 0.02
+     },
+     ".037": {
+      "preset": "keep",
+      "metallic": 0.0,
+      "roughness": 0.35,
+      "specular": 0.2,
+      "coat": 1.0,
+      "coat_roughness": 0.02
+     },
+     ".023": {
+      "preset": "carbon_fibre"
+     },
+     "Material.005": {
+      "preset": "keep",
+      "metallic": 0.0,
+      "roughness": 0.35,
+      "specular": 0.2,
+      "coat": 1.0,
+      "coat_roughness": 0.02
+     },
+     ".036": {
+      "preset": "keep",
+      "metallic": 0.0,
+      "roughness": 0.35,
+      "specular": 0.2,
+      "coat": 1.0,
+      "coat_roughness": 0.02
+     },
+     ".015": {
+      "preset": "wheel_rim"
+     },
+     "Material.006": {
+      "preset": "keep",
+      "roughness": 0.7
+     },
+     "Material.007": {
+      "preset": "rubber_tyre"
+     },
+     ".019": {
+      "preset": "wheel_rim",
+      "base": "#0A0A0A"
+     },
+     ".021": {
+      "preset": "brake_disc"
+     },
+     ".006": {
+      "preset": "satin_trim"
+     },
+     ".022": {
+      "preset": "satin_trim"
+     },
+     ".007": {
+      "preset": "satin_trim"
+     },
+     ".029": {
+      "preset": "satin_trim"
+     },
+     ".027": {
+      "preset": "satin_trim"
+     },
+     ".032": {
+      "preset": "satin_trim"
+     },
+     ".010": {
+      "preset": "satin_trim"
+     },
+     ".035": {
+      "preset": "satin_trim"
+     },
+     ".026": {
+      "preset": "keep",
+      "roughness": 0.55
+     },
+     ".011": {
+      "preset": "glass_car"
+     },
+     ".018": {
+      "preset": "glass_car"
+     },
+     ".004": {
+      "preset": "lamp_lens"
+     },
+     ".031": {
+      "preset": "lamp_led",
+      "emission_strength": 0.0
+     },
+     ".033": {
+      "preset": "lamp_led",
+      "emission_strength": 0.0
+     },
+     ".030": {
+      "preset": "lamp_emissive",
+      "base": "#3A0505",
+      "emission": "#FF1A0A",
+      "emission_strength": 0.0
+     },
+     ".028": {
+      "preset": "metal_brushed"
+     },
+     ".034": {
+      "preset": "metal_brushed",
+      "base": "#3A3A3C"
+     },
+     ".002": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".003": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     "material_16": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".012": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".013": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".001": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".020": {
+      "preset": "metallic_paint",
+      "base": "#FF6A13",
+      "metallic": 0.35,
+      "roughness": 0.32,
+      "coat_roughness": 0.02,
+      "flake_strength": 0.08
+     },
+     ".008": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".014": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".005": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".016": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".038": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".024": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     ".040": {
+      "preset": "car_paint",
+      "base": "#0B0C0E"
+     },
+     "Material.012": {
+      "preset": "car_paint",
+      "base": "#0A0A0A",
+      "roughness": 0.25
+     },
+     "Material.014": {
+      "preset": "car_paint",
+      "base": "#0A0A0A",
+      "roughness": 0.25
+     }
+    }
+   }
+  },
+  {
+   "tool": "reset_scene",
+   "args": {
+    "keep_car": true
+   }
+  },
+  {
+   "tool": "build_set",
+   "args": {
+    "road": [
+     {
+      "straight_m": 60.0
+     },
+     {
+      "turn_deg": 75.0,
+      "radius_m": 80.0
+     },
+     {
+      "straight_m": 90.0
+     }
+    ],
+    "elements": [
+     {
+      "kind": "hillside",
+      "side": "both",
+      "height_deg": [
+       2.0,
+       6.0
+      ],
+      "grade": 0.12
+     },
+     {
+      "kind": "mountains",
+      "side": "far",
+      "count": 6,
+      "distance_m": [
+       1800.0,
+       6500.0
+      ],
+      "height_deg": [
+       6.0,
+       15.0
+      ],
+      "width_deg": [
+       18.0,
+       38.0
+      ],
+      "jagged": 0.65,
+      "flat_top": 0.1,
+      "steepness": 2.5
+     },
+     {
+      "kind": "mountains",
+      "side": "near",
+      "count": 3,
+      "distance_m": [
+       3500.0,
+       7500.0
+      ],
+      "height_deg": [
+       3.0,
+       8.0
+      ],
+      "width_deg": [
+       20.0,
+       35.0
+      ],
+      "jagged": 0.5,
+      "flat_top": 0.1,
+      "steepness": 3.0
+     }
+    ],
+    "camera_side": "left",
+    "road_width_m": 6.5,
+    "seed": 29
+   }
+  },
+  {
+   "tool": "place_car_on_road",
+   "args": {
+    "distance_m": 112.4,
+    "lane": "left",
+    "heading_offset_deg": 0.0
+   }
+  },
+  {
+   "tool": "frame_shot",
+   "args": {
+    "azimuth_deg": 145.0,
+    "elevation_deg": 20.0,
+    "focal_mm": 85.0,
+    "car_width_frac": 0.48,
+    "frame_x": 0.48,
+    "frame_y": 0.63,
+    "roll_deg": 0.0,
+    "target_height_m": 0.65,
+    "aim_x": 0.0,
+    "aim_y": 0.0,
+    "aim_z": 0.0,
+    "subject_width_m": 0.0
+   }
+  }
+ ],
+ "scene": {
+  "place": {
+   "location": [
+    -17.846,
+    107.745,
+    0.01
+   ],
+   "heading_deg": 322.56
+  },
+  "camera": {
+   "location": [
+    -17.004,
+    88.001,
+    7.853
+   ],
+   "rotation_deg": [
+    70.0,
+    0.0,
+    2.443
+   ],
+   "lens_mm": 85.0,
+   "sensor_width_mm": 36.0,
+   "shift_x": 0.02907,
+   "shift_y": 0.06544,
+   "distance_m": 21.03
+  },
+  "light": {
+   "sky": "hdri",
+   "polyhaven_id": "drakensberg_solitary_mountain",
+   "resolution": "4k",
+   "align_sun_azimuth_deg": 222.5580514504701,
+   "sun_strength": 0.0,
+   "hdri_query": "Ladakh high altitude desert highway barren mountains late morning clear sky",
+   "hdri_why": "Dry ochre-brown terrain and distant mountains sit beneath a clear blue sky with bright, high, hard sunlight.",
+   "hdri_sun": {
+    "azimuth_deg": 126.2,
+    "elevation_deg": 33.4,
+    "contrast": 397518.7
+   },
+   "hdri_rotation_deg": 96.36,
+   "sun_words": "The sun is at mid height, behind the camera and to the left; shadows fall away from the camera and to the right."
+  },
+  "blend_key": "jobs/ladakh-e4ca4b/a1/scene.blend"
+ },
+ "budget": {
+  "images_used": 2,
+  "images_cap": 8,
+  "loops": 1,
+  "loops_cap": 6
+ }
+}
